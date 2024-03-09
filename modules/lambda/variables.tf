@@ -3,10 +3,10 @@ variable "bucket_name" {
   type = string
 }
 
-variable "bucket_arn" {
-  description = "arn of the s3 bucket for incoming requests"
-  type = string
-}
+# variable "bucket_arn" {
+#   description = "arn of the s3 bucket for incoming requests"
+#   type = string
+# }
 
 variable "filter_name" {
     description = "filter prefix for s3 objects incoming email requests"
