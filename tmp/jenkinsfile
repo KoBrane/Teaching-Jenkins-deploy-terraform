@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the Git repository
+                git 'https://github.com/your-username/your-repo.git'
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                // Change to the directory containing Terraform configuration files
+                dir('path/to/terraform/files') {
+                    // Initialize Terraform
+                    sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                // Change to the directory containing Terraform configuration files
+                dir('path/to/terraform/files') {
+                    // Run Terraform plan
+                    sh 'terraform plan'
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                // Change to the directory containing Terraform configuration files
+                dir('path/to/terraform/files') {
+                    // Apply Terraform changes (only if plan is successful)
+                    sh 'terraform apply --auto-approve'
+                }
+            }
+        }
+    }
+}
